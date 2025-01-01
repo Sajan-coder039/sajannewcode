@@ -15,21 +15,41 @@ def save_data_videos(videos):
         json.dump(videos,file)
 
 def list_all_videos(videos):
-    for vide in videos:
-        print(f"{vide}. ")
-
+    print("\n")
+    print('*'*90)
+    for index,video in enumerate(videos,start=1):
+        print(f"{index}. {video['name']},Duration: {video['time']} ")
+    print("\n")
+    print('*'*90)
+    
 def add_video(videos):
-    name=input("enter video name:")
-    time=input("enter video time:")
+    name=input("enter video name: ")
+    time=input("enter video time: ")
     videos.append({'name':name,'time':time})
     save_data_videos(videos)
 
 def update_videos(videos):
-    pass
+    list_all_videos(videos)
+    
+    index=int(input("enter the index number to update: "))
+    if 1<=index<=len(videos):
+        name=input("enter the new video name: ")
+        time=input("enter the new video time: ")
+        videos[index-1]={'name':name,'time':time}
+        save_data_videos(videos)
+    else:
+        print("invalid index selector")
 
 def delete_videos(videos):
-    pass
-
+    
+    list_all_videos(videos)
+    index=int(input("enter the index number to delete: "))
+    if 1<=index<=len(videos):
+        del videos[index-1]
+        save_data_videos(videos)
+        print("successfully deleted: ,{'videos':name}")
+    else:
+        print("invalid index selector")  
 
 
 
@@ -42,7 +62,7 @@ def main()->None:
         print("3. Update a youtube videos detail")
         print("4. delete a youtube videos")
         print("5. exit the app")
-        choice=int(input("Enter your choice"))
+        choice=int(input("Enter your choice:  "))
         # print(videos)
         
         match choice:
