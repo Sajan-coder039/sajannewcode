@@ -47,7 +47,7 @@ def delete_videos(videos):
     if 1<=index<=len(videos):
         del videos[index-1]
         save_data_videos(videos)
-        print("successfully deleted: ,{'videos':name}")
+        print("successfully deleted: ")
     else:
         print("invalid index selector")  
 
