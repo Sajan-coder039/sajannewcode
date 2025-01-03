@@ -38,8 +38,8 @@ def update_particular_videos(videos):
         time=input("enter new duration of the video: ")
         videos[index-1]={'name':name,'time':time}
         save_data(videos)
-        
-
+    else:
+        print("invalid index selected ")    
 
 
 
@@ -79,5 +79,3 @@ def main()->None:
 
 if __name__=="__main__":
     main()
-else:
-        print("invalid index selected ")

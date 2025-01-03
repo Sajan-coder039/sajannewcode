@@ -36,6 +36,11 @@ def delete_particular_videos(video_id):
     cur.execute("DELETE FROM video WHERE id=? ",(video_id,))
     con.commit()
 
+def store_deleted_videos(video_id,name,time):
+    
+
+def recute_deleted_videos(video_id):
+    pass
 
 def main():
     while True:
@@ -63,9 +68,14 @@ def main():
         
         elif choice==4:
             video_id=int(input("enter the video id to delete: "))
+            store_deleted_videos(video_id,name,time)
             delete_particular_videos(video_id)
         
         elif choice==5:
+            recute_deleted_videos(video_id)
+
+            store_deleted_videos(video_id,name,time)
+        elif choice==6:
             break  
         
         else :
